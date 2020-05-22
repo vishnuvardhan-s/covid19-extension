@@ -1,0 +1,14 @@
+{
+    "name": "COVID-19 Tracker India",
+    "version": "1.0",
+    "description": "A simple extension to track top states which are affected by COVID-19 Virus in India",
+    "manifest_version": 2,
+    "permissions": [
+        "activeTab"
+    ],
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_title": "COVID-19 Tracker India",
+        "default_icon": "icon.png"
+    }
+}
