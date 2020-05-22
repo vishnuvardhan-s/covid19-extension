@@ -1,4 +1,3 @@
-
 $.ajax({
     url: 'https://api.covid19india.org/csv/latest/state_wise.csv',
     dataType: 'text',
@@ -50,6 +49,12 @@ function successFunction1(data) {
         "Uttarakhand": "UK",
         "West Bengal": "WB"
     };
+    function updateHTML(elmId, value) {
+        var elem = document.getElementById(elmId);
+        if (typeof elem !== 'undefined' && elem !== null) {
+            elem.innerHTML = value;
+        }
+    }
     var table = data.split(/\r?\n|\r/);
     var cur_state = 0;
     for (var i = 0; i < table.length; i++) {
@@ -65,11 +70,11 @@ function successFunction1(data) {
             var active_id = "active" + String(cur_state);
             var death_id = "death" + String(cur_state);
             var cured_id = "cured" + String(cur_state);
-            document.getElementById(state_id).innerHTML = states[state];
-            document.getElementById(confirmed_id).innerHTML = confirmed;
-            document.getElementById(cured_id).innerHTML = cured;
-            document.getElementById(active_id).innerHTML = active;
-            document.getElementById(death_id).innerHTML = deaths;
+            updateHTML(state_id, states[state]);
+            updateHTML(confirmed_id, confirmed);
+            updateHTML(cured_id, cured);
+            updateHTML(active_id, active);
+            updateHTML(death_id, deaths);
             cur_state++;
         }
         if (cur_state > 5) {
